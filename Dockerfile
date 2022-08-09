@@ -4,5 +4,9 @@ RUN pip3 install --no-cache scikit-learn pandas joblib flask requests boto3 tabu
 
 COPY train.py /opt/ml/code/train.py
 
+RUN chmod 755 /opt/ml/code/train.py
+
 # define train.py as the script entry point
 ENV SAGEMAKER_PROGRAM train.py
+
+EXPOSE 8080
